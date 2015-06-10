@@ -1,0 +1,23 @@
+<!-- home.html -->
+<div class="container">
+    <div class="row main-heading">
+        <h4>Welcome To {{restName}}</h4>
+    </div>
+
+    <div class="row">
+        <div class="imgContainer">
+            <img ng-src="images/restaurant.jpg" width="70%"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="descContainer">
+            <p><strong>{{restName}} is known for its delicious Indian food. We prepare variety of Indian delicious foods here, Some of them are </strong></p>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="recipeName in recipes">{{recipeName}}</li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>

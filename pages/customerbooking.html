@@ -1,0 +1,57 @@
+<!-- home.html -->
+<div class="jumbotron" ng-controller="bookingController">
+    <form name="custBookForm" class="form-horizontal" ng-submit="submitForm(custBookForm.$valid, bookingDet)"
+          novalidate>
+        <!-- Email Address -->
+        <div class="form-group">
+            <label for="custName" class="col-sm-2">Name</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="custName" name="custName" placeholder="Enter Name"
+                       ng-model="bookingDet.custName" ng-minlength="6" ng-maxlength="20" required/>
+
+                <p ng-show="custBookForm.custName.$pristine" class="help-block">Name is required</p>
+
+                <p ng-show="custBookForm.custName.$error.minlength" class="help-block">Name is too short</p>
+
+                <p ng-show="custBookForm.custName.$error.maxlength" class="help-block">Name is too Big</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="custName" class="col-sm-2">No Of People</label>
+
+            <div class="col-sm-10">
+                <label><input type="radio" name="noofppl" value="leto5" ng-model="bookingDet.noofppl" ng-checked="true">
+                    <=5 </label>
+                <label><input type="radio" name="noofppl" value="ge5" ng-model="bookingDet.noofppl"> >5 </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="custPhoneNumber" class="col-sm-2">Phone Number</label>
+
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="custPhoneNumber" name="custPhoneNumber"
+                       placeholder="Enter Phone Number"
+                       ng-model="bookingDet.custPhNo" ng-minlength="10" ng-maxlength="10" required>
+
+                <p ng-show="custBookForm.custPhoneNumber.$invalid && !custBookForm.custPhoneNumber.$pristine"
+                   class="help-block">Phone Number is required and should be 10 digits.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="custDate" class="col-sm-2">Pick Date in 2015</label>
+
+            <div class="col-sm-10">
+                <input type="date" id="custDate" name="custDate" ng-model="bookingDet.bookDate"
+                       placeholder="yyyy-MM-dd" min="2015-06-08" max="2015-12-31" required/>
+                <p ng-show="custBookForm.custDate.$error.required">Date is mandatory</p>
+                <p ng-show="custBookForm.custDate.$error.date">Date is not valid</p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-default" ng-disabled="custBookForm.$invalid">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+.descriptionContainer {
+    width: 100%;
+}
+
+.main-heading{
+    text-align: center;
+}
+
+.page-header h4{
+    text-align: center;
+}
+
+.imgContainer{
+    text-align: center;
+}
+
+.restFooter{
+    color:orange;
+    text-align: center;
+    color: #FFFFFF;
+}

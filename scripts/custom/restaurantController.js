@@ -3,24 +3,22 @@
  */
 var resCtrl = angular.module('restaurantController',[])
 
+//main controller
 resCtrl.controller('mainController', ['$scope', function(scope){
 
     scope.restName = 'Shiva Restaurant';
     scope.devName = 'Chetan Munegowda';
-    scope.recipes = ["Upma", "Phulka/Rice with Rajama curry", "Phulka/Rice with Chole curru", "Vegetable Pulv", "Dal and Rice","Masala Dosa"];
+    scope.recipes = ["Upma", "Phulka/Rice with Rajama curry", "Phulka/Rice with Chole curry", "Vegetable Pulav", "Dal and Rice","Masala Dosa"];
 
 }]);
 
+//customer controller
 resCtrl.controller('customerController', ['$scope', '$location', function (scope, location) {
     scope.pageClass = 'page-customer';
 
     scope.customer = {};
 
     scope.submitForm = function(isValid, customer, path){
-
-        alert("hello");
-        alert(isValid);
-        alert(customer);
 
         if(isValid)
         {
@@ -34,6 +32,8 @@ resCtrl.controller('customerController', ['$scope', '$location', function (scope
 }]);
 
 
+
+//booking controller
 resCtrl.controller('bookingController', ['$scope', function (scope) {
     scope.pageClass = 'page-book';
 
@@ -47,6 +47,8 @@ resCtrl.controller('bookingController', ['$scope', function (scope) {
 }]);
 
 
+
+//owner controller
 resCtrl.controller('ownerController', ['$scope','$http','$log',function (scope,http,log) {
     scope.pageClass = 'page-owner';
     scope.customers = [];
@@ -67,6 +69,7 @@ resCtrl.controller('ownerController', ['$scope','$http','$log',function (scope,h
 }]);
 
 
+//booking details controller
 resCtrl.controller('bookingDetailsController',['$scope','$routeParams','bookingDetailsService', function(scope, routeParam, bookService){
 
     bookService.find(routeParam.custId, function(data){
